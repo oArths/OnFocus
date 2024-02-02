@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image,Text } from 'react-native';
-import { Logo, Titulo, Container, Header } from '../Components/HomeStyles';
+import { Logo, Name, Container, Header } from './HomeStyles';
 
 
 export default function Home (){
@@ -9,7 +9,7 @@ export default function Home (){
                 <Logo
                 source={require('../img/Logo.png')}
                 />
-                <Titulo>OnFocus</Titulo>
+                <Name>OnFocuAAAAAAAs</Name>
 
             </Header>
         </Container>
