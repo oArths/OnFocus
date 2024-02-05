@@ -1,9 +1,14 @@
 import { styles, SHEET_HEIGHT, SHEET_OVER_DRAG } from './styles';
-import {View, Text} from "react-native"
+import {Title, Container} from "./styles"
+import NumberSelector from "../Timer/index"
+
 // Onde pego os Icons
 import { MaterialCommunityIcons} from "@expo/vector-icons"
+
 // é usado para detectar o movimento e qual movimento esta sendo feito, respectivamente
-import { GestureDetector, Gesture, TextInput } from "react-native-gesture-handler"
+import { GestureDetector, Gesture } from "react-native-gesture-handler"
+
+
 // vai ser usado para a anaimação do bottom sheet
 // runOnJS é usado para definir onde sera rodado a tread, no caso no javascript
 import Animated, { 
@@ -23,6 +28,7 @@ type Props = {
 
 
 export default function Sheet ({onClose}: Props){
+    
 
     // definir valor iniciar do bottom sheet, essa var vai ser reutilizada para fazer a animação
     const offset = useSharedValue(0)
@@ -44,6 +50,7 @@ export default function Sheet ({onClose}: Props){
         // e fazendo ter a animaçao de voltar, não o deixando ficar solto
         offset.value = offsetDelta > 0 ? offsetDelta : withSpring(clamp)
     })
+
     // responsavel o calculo de onde ele esta e se eestiver 1/3 da altura ele fecha
     // runOnjs é usado para ele fazer o  calculo da movimentação no javascript ou enves da ui do usuario
     .onFinalize(() => {
@@ -71,7 +78,7 @@ export default function Sheet ({onClose}: Props){
             exiting={SlideOutDown}
             
             >
-
+                
                 <MaterialCommunityIcons
                 name="drag-horizontal"
                 color="#999"
@@ -79,9 +86,11 @@ export default function Sheet ({onClose}: Props){
                 style={styles.DragIcon}
 
                 />
-                <Text style={styles.title}>Opções</Text>
-                <TextInput placeholder='Digite o titulo'></TextInput>
-
+                {/* <Text style={styles.title}>Opções</Text> */}
+                <Container>
+                <Title placeholder='Digite o titulo'></Title>
+                <NumberSelector/>
+                </Container>
             </Animated.View>
         </GestureDetector>
         
