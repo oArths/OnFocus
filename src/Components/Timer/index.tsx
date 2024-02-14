@@ -11,7 +11,7 @@ class NumberSelector extends Component<{}, State> {
 
   private increaseTimeout: NodeJS.Timeout | null = null;
   private delayTimeout: NodeJS.Timeout | null = null;
-  private delayDuration = 500; // Tempo de atraso em milissegundos (1 segundo)
+  private delayDuration = 300; // Tempo de atraso em milissegundos (1 segundo)
 
 
   constructor(props: {}) {
@@ -42,6 +42,14 @@ class NumberSelector extends Component<{}, State> {
       }, 150); // Intervalo de aumento
     }, this.delayDuration);
   };
+  handlePressDes = () => {
+    // Atraso antes de começar a aumentar
+    this.delayTimeout = setTimeout(() => {
+      this.increaseTimeout = setInterval(() => {
+        this.decreaseNumber();
+      }, 150); // Intervalo de aumento
+    }, this.delayDuration);
+  };
 
   handlePressOut = () => {
     // Limpar os timeouts ao soltar o botão
@@ -60,20 +68,20 @@ class NumberSelector extends Component<{}, State> {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPressIn={this.handlePressIn} onPress={this.decreaseNumber} onPressOut={this.handlePressOut}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>+</Text>
-          </View>
-        </TouchableOpacity>
-
-        <View style={styles.viewText}>
-          <Text style={styles.numberText}>{String(this.state.number).padStart(2, '0')}</Text>
-
-        </View>
-
-        <TouchableOpacity onPress={this.increaseNumber} style={styles.button}>
+        <TouchableOpacity onPress={this.increaseNumber} style={styles.buttonIn} onPressOut={this.handlePressOut} onPressIn={this.handlePressIn}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
+        
+        <View style={styles.viewText}>
+          <Text style={styles.numberText}>{String(this.state.number).padStart(2, '0')}</Text>
+        </View>
+
+        <TouchableOpacity style={styles.buttonDes} onPressIn={this.handlePressDes} onPress={this.decreaseNumber} onPressOut={this.handlePressOut}>
+            <Text style={styles.buttonText}>-</Text>
+        </TouchableOpacity>
+
+
+        
       </View>
     );
   }
@@ -86,26 +94,41 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 16,
   },
-  button: {
+  buttonIn: {
     backgroundColor: 'blue',
+    width: 70,
     padding: 10,
-    borderRadius: 5,
+    borderTopRightRadius: 5,
+    borderTopLeftRadius: 5,
+  },
+  buttonDes: {
+    backgroundColor: 'blue',
+    width: 70,
+    padding: 10,
+    borderBottomRightRadius: 5,
+    borderBottomLeftRadius: 5,
   },
   buttonText: {
+    textAlign: "center",
     color: 'white',
     fontSize: 18,
   },
   viewText:{
     display: 'flex',
     flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
   numberText: {
     textAlign: "center",
-    width: 80,
+    width: 70,
     borderWidth: 1,
-    borderColor: "black",
-    height: 70,
-    fontSize: 42,
+    // borderTop: none,
+    // borderBottom: none,
+    borderRightColor: "black",
+    borderLeftColor: "black",
+    height: 50,
+    fontSize: 50,
   },
 });
 
