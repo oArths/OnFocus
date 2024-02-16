@@ -65,4 +65,10 @@ export const Container =  styled.View`
     align-items: center;
     
 `;
+export const Main =  styled.View`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+`;
   

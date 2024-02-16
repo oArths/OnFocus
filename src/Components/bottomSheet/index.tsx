@@ -1,6 +1,6 @@
-import { styles, SHEET_HEIGHT, SHEET_OVER_DRAG } from './styles';
+import { styles, SHEET_HEIGHT, SHEET_OVER_DRAG, Main } from './styles';
 import {Title, Container} from "./styles"
-import NumberSelector from "../Timer/index"
+import Timer from "../Timer/index.js"
 
 // Onde pego os Icons
 import { MaterialCommunityIcons} from "@expo/vector-icons"
@@ -88,8 +88,11 @@ export default function Sheet ({onClose}: Props){
                 />
                 {/* <Text style={styles.title}>Opções</Text> */}
                 <Container>
-                <Title placeholder='Digite o titulo'></Title>
-                <NumberSelector/>
+                    <Main>
+                        <Title placeholder='Digite o titulo'></Title>
+                        
+                    </Main>
+                    <Timer/>
                 </Container>
             </Animated.View>
         </GestureDetector>
