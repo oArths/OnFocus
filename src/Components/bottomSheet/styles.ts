@@ -13,7 +13,7 @@ export const SHEET_HEIGHT = 740
 export const SHEET_OVER_DRAG = 20
 
 export const styles = StyleSheet.create({
-  container:{
+  Detector:{
     width: DIMENSIONS.width,
     height: SHEET_HEIGHT,
     backgroundColor: "white",
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
 })
 
 export const Title =  styled.TextInput`
-    margin-top: 30px;
+    margin-top: 20px;
     color: #000;
     width: 300px;
     height: 45px;
@@ -67,8 +67,14 @@ export const Container =  styled.View`
 `;
 export const Main =  styled.View`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    gap: 20px;  
+`;
+export const Insert = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 `;
   

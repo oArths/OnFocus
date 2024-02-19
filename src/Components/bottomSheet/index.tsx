@@ -1,6 +1,12 @@
 import { styles, SHEET_HEIGHT, SHEET_OVER_DRAG, Main } from './styles';
-import {Title, Container} from "./styles"
+import {Title, Container, Insert} from "./styles"
 import Timer from "../Timer/index.js"
+import React, { useState } from "react";
+// import DateTimePicker from '@react-native-community/datetimepicker';
+
+
+
+
 
 // Onde pego os Icons
 import { MaterialCommunityIcons} from "@expo/vector-icons"
@@ -28,7 +34,10 @@ type Props = {
 
 
 export default function Sheet ({onClose}: Props){
-    
+
+
+
+    const [date, setDate] = useState(new Date())
 
     // definir valor iniciar do bottom sheet, essa var vai ser reutilizada para fazer a animação
     const offset = useSharedValue(0)
@@ -68,12 +77,15 @@ export default function Sheet ({onClose}: Props){
     const translateY = useAnimatedStyle(() =>({
         transform: [{translateY: offset.value}]
     }))
+   
+   
+
 
 
     return(
         <GestureDetector gesture={pan}>
             <Animated.View 
-            style={[styles.container, translateY]}
+            style={[styles.Detector, translateY]}
             entering={SlideInDown.springify().damping(15)}
             exiting={SlideOutDown}
             
@@ -90,9 +102,12 @@ export default function Sheet ({onClose}: Props){
                 <Container>
                     <Main>
                         <Title placeholder='Digite o titulo'></Title>
+                        <Timer/>
+                            <Insert>
+                            
                         
-                    </Main>
-                    <Timer/>
+                            </Insert>
+                    </Main>   
                 </Container>
             </Animated.View>
         </GestureDetector>
