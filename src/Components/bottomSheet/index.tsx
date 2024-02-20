@@ -1,8 +1,9 @@
 import { styles, SHEET_HEIGHT, SHEET_OVER_DRAG, Main } from './styles';
-import {Title, Container, Insert} from "./styles"
+import {Title, Container, Insert, Data, Des, Button} from "./styles"
+import {Text,View, Platform,  } from 'react-native'
 import Timer from "../Timer/index.js"
 import React, { useState } from "react";
-// import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 
@@ -26,6 +27,7 @@ import Animated, {
     SlideInDown,
     SlideOutDown
 } from "react-native-reanimated"
+// import { Button } from 'react-native-ui-lib';
 
 // função para o fechamento do bottom sheet
 type Props = {
@@ -34,10 +36,14 @@ type Props = {
 
 
 export default function Sheet ({onClose}: Props){
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show,setShow] = useState(false)
 
 
 
-    const [date, setDate] = useState(new Date())
+
+
 
     // definir valor iniciar do bottom sheet, essa var vai ser reutilizada para fazer a animação
     const offset = useSharedValue(0)
@@ -78,6 +84,14 @@ export default function Sheet ({onClose}: Props){
         transform: [{translateY: offset.value}]
     }))
    
+
+    const [text, setText] = useState('');
+
+
+  const handleTextChange = (inputText) => {
+      setText(inputText);
+    }
+  
    
 
 
@@ -101,12 +115,30 @@ export default function Sheet ({onClose}: Props){
                 {/* <Text style={styles.title}>Opções</Text> */}
                 <Container>
                     <Main>
-                        <Title placeholder='Digite o titulo'></Title>
+                        <Title maxLength={20} placeholder='Digite o titulo'></Title>
                         <Timer/>
                             <Insert>
-                            
+                            <Des
+                            multiline
+                            numberOfLines={4} 
+                            placeholder='Digite aqui...'
+                            value={text}
+                            onChangeText={handleTextChange}
                         
+                            
+                            style={{
+                            borderWidth: 1,
+                            borderColor: '#ccc',
+                            padding: 8,
+                            textAlignVertical: 'top', 
+                            }}
+                             />
+
+                            
+         
                             </Insert>
+                             <Button title="criar"/>
+                            
                     </Main>   
                 </Container>
             </Animated.View>

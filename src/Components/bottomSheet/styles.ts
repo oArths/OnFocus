@@ -77,4 +77,18 @@ export const Insert = styled.View`
   flex-direction: row;
   align-items: stretch;
 `;
+export const Data = styled.Button`
+  background-color: blueviolet;
+  width: 150px;
+  height: 150px;
+`;
+export const Button = styled.Button`
+background-color: blueviolet;
+  width: 150px;
+  height: 150px;
+
+`;
+export const Des = styled.TextInput`
+      width: 200px;
+`;
   
