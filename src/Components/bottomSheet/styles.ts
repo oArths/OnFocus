@@ -1,6 +1,7 @@
 import { TextInput } from 'react-native-gesture-handler';
 import  { StyleSheet, Dimensions} from "react-native"
 import  styled  from "styled-components/native"
+import { TouchableOpacity } from 'react-native';
 
 // nomeando const para o tamanho para não usar numeros aleatorios e me perder na leitura
 // o tamanho da objeto sera do tamanho de uma "window" que vem de uma libary
@@ -77,18 +78,20 @@ export const Insert = styled.View`
   flex-direction: row;
   align-items: stretch;
 `;
-export const Data = styled.Button`
-  background-color: blueviolet;
-  width: 150px;
-  height: 150px;
-`;
-export const Button = styled.Button`
-background-color: blueviolet;
-  width: 150px;
-  height: 150px;
-
-`;
 export const Des = styled.TextInput`
-      width: 200px;
+  width: 200px;
 `;
-  
+export const CustomButton = styled(TouchableOpacity)`
+    background-color: #5AA15D;
+    width: 200px;
+    height: 63px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    
+`;
+
+export const ButtonText = styled.Text`
+color: white;
+font-size: 20px;
+`;

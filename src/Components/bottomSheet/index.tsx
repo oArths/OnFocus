@@ -1,7 +1,6 @@
 import { styles, SHEET_HEIGHT, SHEET_OVER_DRAG, Main } from './styles';
-import {Title, Container, Insert, Data, Des, Button} from "./styles"
-import {Text,View, Platform,  } from 'react-native'
-import Timer from "../Timer/index.js"
+import {Title, Container, Insert, Des, CustomButton, ButtonText } from "./styles"
+import Timer from "../Timer/index"
 import React, { useState } from "react";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -137,7 +136,11 @@ export default function Sheet ({onClose}: Props){
                             
          
                             </Insert>
-                             <Button title="criar"/>
+                            <CustomButton  activeOpacity={0.1}  onPress={() => console.log('Botão pressionado')}>
+                                <ButtonText>Criar</ButtonText>
+                            </CustomButton>
+
+                           
                             
                     </Main>   
                 </Container>
