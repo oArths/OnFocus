@@ -72,7 +72,7 @@ class Timer extends Component<{}, State> {
           <View style={styles.button}>
             <Image 
             style={styles.buttonUp}
-            source={require('/Arthur Ferreira/OnFocus/src/Img/upload.png')}
+            source={require('../../Img/upload.png')}
             />
           </View>
         </TouchableOpacity>
@@ -85,8 +85,8 @@ class Timer extends Component<{}, State> {
         <TouchableOpacity onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} style={styles.button}>
             <View style={styles.button}>
             <Image 
-            style={styles.buttonUp}
-            source={require('/Arthur Ferreira/OnFocus/src/Img/Down.png')}
+            style={styles.buttonDowm}
+            source={require('../../Img/Down.png')}
             />
           </View>
         </TouchableOpacity>
@@ -101,13 +101,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     padding: 16,
+    gap: 10,
   },
   button: {
-    // backgroundColor: 'blue',
-    padding: 10,
+    display: "flex",
+    flexDirection: "column",
+    
+    width: 70,
+    gap: 20,
     borderRadius: 5,
+    backgroundColor: "#5AA15D",
   },
   buttonUp: {
+    width: 30, // Ajuste o tamanho conforme necessário
+    height: 30,
+    
+  },
+  buttonDowm: {
     backgroundColor:"white",
     width: 30, // Ajuste o tamanho conforme necessário
     height: 30,
@@ -115,14 +125,18 @@ const styles = StyleSheet.create({
   viewText:{
     display: 'flex',
     flexDirection: "row",
+    
+    
   },
   numberText: {
+    alignItems: "center",
     textAlign: "center",
-    width: 80,
-    // borderWidth: 1,
-    // borderColor: "black",
+    width: 70,
+    borderWidth: 1,
+    borderColor: "black",
+    color: "black",
     height: 70,
-    fontSize: 42,
+    fontSize: 60,
   },
 });
 

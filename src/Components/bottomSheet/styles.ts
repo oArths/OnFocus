@@ -79,7 +79,9 @@ export const Insert = styled.View`
   align-items: stretch;
 `;
 export const Des = styled.TextInput`
-  width: 200px;
+  font-size: 19px;
+  width: 250px;
+  height: 150px;
 `;
 export const CustomButton = styled(TouchableOpacity)`
     background-color: #5AA15D;
@@ -92,6 +94,8 @@ export const CustomButton = styled(TouchableOpacity)`
 `;
 
 export const ButtonText = styled.Text`
-color: white;
-font-size: 20px;
+  text-align: center;
+  width: 200px;
+  color: white;
+  font-size: 20px;
 `;
