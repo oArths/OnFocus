@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {Container, ViewOp, Button, ButtonUp,ButtonDown, ViewText, NumberText } from "./styles"
 
 interface State {
   number: number;
@@ -67,77 +67,34 @@ class Timer extends Component<{}, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity onPressIn={this.handlePressDes} onPress={this.decreaseHours} onPressOut={this.handlePressOut}>
-          <View style={styles.button}>
-            <Image 
-            style={styles.buttonUp}
+      <Container >
+        <ViewOp title='' onPressIn={this.handlePressDes} onPress={this.decreaseHours} onPressOut={this.handlePressOut}>
+          <Button >
+            <ButtonUp 
+            
             source={require('../../Img/upload.png')}
             />
-          </View>
-        </TouchableOpacity>
+          </Button>
+        </ViewOp>
 
-        <View style={styles.viewText}>
-          <Text style={styles.numberText}>{String(this.state.number).padStart(2, '0')}</Text>
+        <ViewText >
+          <NumberText>{String(this.state.number).padStart(2, '0')}</NumberText>
 
-        </View>
+        </ViewText>
 
-        <TouchableOpacity onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} style={styles.button}>
-            <View style={styles.button}>
-            <Image 
-            style={styles.buttonDowm}
-            source={require('../../Img/Down.png')}
+        {/* <ViewOp onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} >
+            <Button >
+            <ButtonDown 
+            
+            source={require('../../Img/Down')}
             />
-          </View>
-        </TouchableOpacity>
-      </View>
+          </Button>
+        </ViewOp> */}
+      </Container>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    padding: 16,
-    gap: 10,
-  },
-  button: {
-    display: "flex",
-    flexDirection: "column",
-    
-    width: 70,
-    gap: 20,
-    borderRadius: 5,
-    backgroundColor: "#5AA15D",
-  },
-  buttonUp: {
-    width: 30, // Ajuste o tamanho conforme necessário
-    height: 30,
-    
-  },
-  buttonDowm: {
-    backgroundColor:"white",
-    width: 30, // Ajuste o tamanho conforme necessário
-    height: 30,
-  },
-  viewText:{
-    display: 'flex',
-    flexDirection: "row",
-    
-    
-  },
-  numberText: {
-    alignItems: "center",
-    textAlign: "center",
-    width: 70,
-    borderWidth: 1,
-    borderColor: "black",
-    color: "black",
-    height: 70,
-    fontSize: 60,
-  },
-});
+
 
 export default Timer;
