@@ -50,9 +50,9 @@ export const Title =  styled.TextInput`
     margin-top: 20px;
     color: #000;
     width: 300px;
-    height: 45px;
+    height: 50px;
     border: 0.5px ;
-    border-color: #0F2;
+    border-color: #000;
     text-align: left;
     font-size: 29px;
     padding-left: 15px;
@@ -66,10 +66,24 @@ export const Container =  styled.View`
     align-items: center;
     
 `;
-export const Button =  styled.Button`
+export const Button =  styled(TouchableOpacity)`
     display: flex;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
+    /* background-color: aqua; */
+    
+`;
+export const DateTimeText =  styled.Text`
+    display: flex;
+    font-size: 20px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 0.5px;
+    border-color: black;
+    border-radius: 7px;
     
 `;
 export const Main =  styled.View`
@@ -84,10 +98,22 @@ export const Insert = styled.View`
   flex-direction: row;
   align-items: stretch;
 `;
+export const DateTime = styled.View`
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+`;
 export const Des = styled.TextInput`
   font-size: 19px;
   width: 250px;
   height: 150px;
+  border-width: 0.5px;
+  border-color: #ccc;
+  border-radius: 7px;
+  padding: 8px;
+  text-align: left;
+ 
+ 
 `;
 export const CustomButton = styled(TouchableOpacity)`
     background-color: #5AA15D;
@@ -103,5 +129,10 @@ export const ButtonText = styled.Text`
   text-align: center;
   width: 200px;
   color: white;
+  font-size: 20px;
+`;
+export const Text = styled.Text`
+  text-align: center;
+  color: black;
   font-size: 20px;
 `;

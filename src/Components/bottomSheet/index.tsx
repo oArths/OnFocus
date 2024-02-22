@@ -7,6 +7,8 @@ import {
   CustomButton,
   ButtonText,
   Button,
+  DateTime,
+  DateTimeText,
 } from "./styles";
 import Timer from "../Timer/index";
 import React, { useState } from "react";
@@ -31,6 +33,7 @@ import Animated, {
   SlideInDown,
   SlideOutDown,
 } from "react-native-reanimated";
+import { checkIfConfigIsValid } from "react-native-reanimated/lib/typescript/reanimated2/animation/springUtils";
 // import { Button } from 'react-native-ui-lib';
 
 // função para o fechamento do bottom sheet
@@ -40,10 +43,15 @@ type Props = {
 
 export default function Sheet({ onClose }: Props) {
    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const [chosenDate, setChosenDate] = useState(null);
+   const [chosenDate, setChosenDate] = useState("");
+   const [isHoursPickerVisible, setHoursPickerVisibility] = useState(false);
+   const [chosenHours, setChosenHours] = useState("");
+   const [errorMessage, setErrorMessage] = useState('');
+   const [text, setText] = useState("");
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
+    setErrorMessage('');  // Limpar a mensagem de erro ao mostrar a modal
   };
 
   const hideDatePicker = () => {
@@ -51,9 +59,44 @@ export default function Sheet({ onClose }: Props) {
   };
 
   const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
-    setChosenDate(date);
-    hideDatePicker();
+    // console.warn("A date has been picked: ", date);
+    if (date < new Date()) {
+      setErrorMessage("Insira uma data válida");
+    } else {
+      setChosenDate(date);
+      hideDatePicker();
+    }
+  };
+
+//   const showDatePicker = () => {
+//     setDatePickerVisibility(true);
+//   };
+
+//   const hideDatePicker = () => {
+//     setDatePickerVisibility(false);
+//   };
+
+//   const handleConfirm = (date) => {
+//     console.warn("A date has been picked: ", date);
+//     if (date < new Date()) document.querySelector("#erro").textContent = "Insira uma data válida"
+//     else  setChosenDate(date);
+    
+//     hideDatePicker();
+//   };
+
+
+  const showHoursPicker = () => {
+    setHoursPickerVisibility(true);
+  };
+
+  const hideHoursPicker = () => {
+    setHoursPickerVisibility(false);
+  };
+
+  const handleConfirmHours = (date) => {
+    // console.warn("A date has been picked: ", date);
+    setChosenHours(date);
+    hideHoursPicker();
   };
 
   // definir valor iniciar do bottom sheet, essa var vai ser reutilizada para fazer a animação
@@ -93,7 +136,7 @@ export default function Sheet({ onClose }: Props) {
     transform: [{ translateY: offset.value }],
   }));
 
-  const [text, setText] = useState("");
+  
 
   const handleTextChange = (inputText) => {
     setText(inputText);
@@ -117,19 +160,39 @@ export default function Sheet({ onClose }: Props) {
           <Main>
             <Title maxLength={20} placeholder="Digite o titulo"></Title>
             <Timer />
+            <DateTime>
+                <Button  onPress={showDatePicker} >
+                    {chosenDate ? <DateTimeText>{format(chosenDate, 'dd/MM/yyyy')}</DateTimeText> : <DateTimeText>Data</DateTimeText>}
+                </Button>
+                
+                    <DateTimePickerModal
+                        isVisible={isDatePickerVisible}
+                        mode="date"
+                        onConfirm={handleConfirm}
+                        onCancel={hideDatePicker}
+                        
+                    />
+                    
+                <Button onPress={showHoursPicker} >
+                    {chosenHours ? <DateTimeText>{format(chosenHours, 'HH:mm')}</DateTimeText> : <DateTimeText>Hora</DateTimeText>}                
+                </Button>
+                    <DateTimePickerModal
+                        isVisible={isHoursPickerVisible}
+                        mode="time"  
+                        onConfirm={handleConfirmHours}
+                        onCancel={hideHoursPicker}
+                    />
+            </DateTime>
+            {/* <Text id="erro">{errorMessage}</Text> */}
             <Insert>
               <Des
-                multiline
+                multiline={true} 
                 numberOfLines={4}
+                maxLength={80}
                 placeholder="Digite aqui..."
                 value={text}
                 onChangeText={handleTextChange}
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  padding: 8,
-                  textAlignVertical: "top",
-                }}
+                
               />
             </Insert>
 
@@ -139,19 +202,7 @@ export default function Sheet({ onClose }: Props) {
             >
               <ButtonText>Criar</ButtonText>
             </CustomButton>
-            <Button title="Show Date Picker" onPress={showDatePicker} />
-      <DateTimePickerModal
-        isVisible={isDatePickerVisible}
-        mode="date"
-        onConfirm={handleConfirm}
-        onCancel={hideDatePicker}
-      />
-      {chosenDate && (
-        <ButtonText>
-          Data escolhida: {format(chosenDate, "dd/MM/yyyy")}
-        </ButtonText>
-      )}
-
+           
           </Main>
         </Container>
       </Animated.View>
