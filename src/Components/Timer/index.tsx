@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Container, ViewOp, Button, ButtonUp,ButtonDown, ViewText, NumberText } from "./styles"
+import {Container, ViewOpUp, ViewOpDo, ButtonUp,ButtonDown, ViewText, NumberText, Horus, Mints, Entre } from "./styles"
 
 interface State {
   number: number;
+  minutes: number;
 }
 
 
@@ -18,6 +19,7 @@ class Timer extends Component<{}, State> {
     super(props);
     this.state = {
       number: 0,
+      minutes: 0,
     };
   }
 
@@ -65,31 +67,90 @@ class Timer extends Component<{}, State> {
 
 
 
+  increaseMinutes = () => {
+    this.setState((prevState) => ({
+      minutes: prevState.minutes < 59 ? prevState.minutes + 1 : 0,
+    }));
+  };
+
+  decreaseMinutes = () => {
+    this.setState((prevState) => ({
+      minutes: prevState.minutes > 0 ? prevState.minutes - 1 : 59,
+    }));
+  };
+
+  handlePressInMints = () => {
+    // Atraso antes de começar a aumentar
+    this.delayTimeout = setTimeout(() => {
+      this.increaseTimeout = setInterval(() => {
+        this.increaseMinutes();
+      }, 150); // Intervalo de aumento
+    }, this.delayDuration);
+  };
+
+  handlePressDesMints = () => {
+    // Atraso antes de começar a diminuir
+    this.delayTimeout = setTimeout(() => {
+      this.increaseTimeout = setInterval(() => {
+        this.decreaseMinutes();
+      }, 150); // Intervalo de diminuição
+    }, this.delayDuration);
+  };
+
+  handlePressOutMints = () => {
+    // Limpar os timeouts ao soltar o botão
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
+      this.delayTimeout = null;
+    }
+    if (this.increaseTimeout) {
+      clearInterval(this.increaseTimeout);
+      this.increaseTimeout = null;
+    }
+  };
+
+
+
   render() {
     return (
       <Container >
-        <ViewOp title='' onPressIn={this.handlePressDes} onPress={this.decreaseHours} onPressOut={this.handlePressOut}>
-          <Button >
-            <ButtonUp 
-            
-            source={require('../../Img/upload.png')}
-            />
-          </Button>
-        </ViewOp>
+        <Horus>
+          <ViewOpUp onPressIn={this.handlePressDes} onPress={this.decreaseHours} onPressOut={this.handlePressOut}>     
+              <ButtonUp          
+              source={require('../../Img/upload.png')}
+              />
+          </ViewOpUp>
 
-        <ViewText >
-          <NumberText>{String(this.state.number).padStart(2, '0')}</NumberText>
+          <ViewText >
+            <NumberText>{String(this.state.number).padStart(2, '0')}</NumberText>
+          </ViewText>
 
-        </ViewText>
+          <ViewOpDo onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} >     
+              <ButtonDown 
+              source={require('../../Img/Down.png')}
+              />
+          </ViewOpDo>
+        </Horus>
 
-        {/* <ViewOp onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} >
-            <Button >
-            <ButtonDown 
-            
-            source={require('../../Img/Down')}
-            />
-          </Button>
-        </ViewOp> */}
+          <Entre>:</Entre>
+
+        <Mints>
+          <ViewOpUp onPressIn={this.handlePressDesMints} onPress={this.decreaseMinutes} onPressOut={this.handlePressOutMints}>     
+              <ButtonUp          
+              source={require('../../Img/upload.png')}
+              />
+          </ViewOpUp>
+
+          <ViewText >
+            <NumberText>{String(this.state.minutes).padStart(2, '0')}</NumberText>
+          </ViewText>
+
+          <ViewOpDo onPressIn={this.handlePressInMints} onPress={this.increaseMinutes} onPressOut={this.handlePressOutMints} >     
+              <ButtonDown 
+              source={require('../../Img/Down.png')}
+              />
+          </ViewOpDo>
+        </Mints>
       </Container>
     );
   }
