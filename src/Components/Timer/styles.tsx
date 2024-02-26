@@ -80,6 +80,33 @@ export const NumberText = styled.Text`
   border-color: #585353b1;
 
   `;
+  export const DateTimeText = styled.Text`
+  display: flex;
+  font-size: 17px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 0.5px;
+  border-color: black;
+  border-radius: 7px;
+`;
+export const DateTime = styled.View`
+  display: flex;
+  flex-direction: row;
+  width: 207px;
+  justify-content: space-between;
+  /* gap: 50px; */
+`;
+export const Button = styled(TouchableOpacity)`
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+`;
+export const EntreButton = styled.Text`
+ 
+`;
 
 // const Styles = StyleSheet.create({
 //     Container: {

@@ -61,23 +61,8 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-export const Button = styled(TouchableOpacity)`
-  display: flex;
-  font-size: 20px;
-  justify-content: center;
-  align-items: center;
-`;
-export const DateTimeText = styled.Text`
-  display: flex;
-  font-size: 17px;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border: 0.5px;
-  border-color: black;
-  border-radius: 7px;
-`;
+
+
 export const Main = styled.View`
   display: flex;
   flex-direction: column;
@@ -90,13 +75,7 @@ export const Insert = styled.View`
   flex-direction: row;
   align-items: stretch;
 `;
-export const DateTime = styled.View`
-  display: flex;
-  flex-direction: row;
-  width: 207px;
-  justify-content: space-between;
-  /* gap: 50px; */
-`;
+
 export const Des = styled.TextInput`
   font-size: 19px;
   width: 250px;

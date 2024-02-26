@@ -148,7 +148,7 @@ export default function Home (){
                 </Container>
                 </ScrollView>
                 <ContainerSheet>
-                    <ButtonSheet  activeOpacity={0.7} onPress={toggleSheet} style={{ elevation: 400 }}>
+                    <ButtonSheet  activeOpacity={0.7} onPress={toggleSheet} >
                         <Plus source={require('../Img/plus.png')}
                         
                         />

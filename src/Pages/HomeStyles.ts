@@ -5,7 +5,7 @@ import { TouchableOpacity } from "react-native";
 export const Main = styled.View`
   margin-top: 40px;
   display: flex;
-  background-color: "#000";
+  /* background-color: "#000"; */
   width: 100%;
   height: 100%;
 `;
@@ -17,21 +17,11 @@ export const ContainerSheet = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  width: 100%;
-  height: 125px;
+  background-color: transparent;
 
 `;
 export const ButtonSheet = styled(TouchableOpacity)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: white;
-  width: 100%;
-  height: 90px; */
-  /* align-self: center; */
-  /* position: absolute; */
-  bottom: 25px;
+  bottom: 70px;
 `;
 export const Header = styled.View`
   display: flex;
