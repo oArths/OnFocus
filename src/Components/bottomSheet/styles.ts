@@ -66,11 +66,10 @@ export const Button = styled(TouchableOpacity)`
   font-size: 20px;
   justify-content: center;
   align-items: center;
-  /* background-color: aqua; */
 `;
 export const DateTimeText = styled.Text`
   display: flex;
-  font-size: 20px;
+  font-size: 17px;
   padding: 5px;
   justify-content: center;
   align-items: center;
@@ -94,7 +93,9 @@ export const Insert = styled.View`
 export const DateTime = styled.View`
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  width: 207px;
+  justify-content: space-between;
+  /* gap: 50px; */
 `;
 export const Des = styled.TextInput`
   font-size: 19px;
@@ -104,6 +105,7 @@ export const Des = styled.TextInput`
   border-color: #ccc;
   border-radius: 7px;
   padding: 8px;
+ 
 `;
 export const CustomButton = styled(TouchableOpacity)`
   background-color: #5aa15d;

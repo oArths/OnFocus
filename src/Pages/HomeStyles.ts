@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from "react-native";
 
 export const Main = styled.View`
@@ -116,3 +117,12 @@ export const IconEnter = styled.Image`
   width: 50px;
   height: 50px;
 `;
+const Styles = StyleSheet.create({
+  Container: {
+    backgroundColor: '#ffffff',
+    padding: 16,
+    elevation: 4,
+  },
+  
+})
+export default Styles;

@@ -4,6 +4,7 @@ import {Main, Header, Title, Logo, ButtonSheet,
     ContainnerTask, DateClass, TaskName,
     CategoClass, Class, IconEnter, ClassEnter,
     Today, Before, ContainerSheet} from "./HomeStyles"
+import Styles from "./HomeStyles";    
 import  Sheet  from '../Components/bottomSheet/index';
 import { ScrollView } from "react-native";
 
@@ -38,13 +39,7 @@ export default function Home (){
                         <TitleText>Hoje</TitleText>
                         
                         <TaskToday>
-                            <ContainnerTask style={{
-                                backgroundColor: '#ffffff',
-                                borderRadius: 8,
-                                padding: 16,
-                                elevation: 5,
-                    
-                }}>
+                            <ContainnerTask style={Styles.Container}>
                                 <ClassEnter >
                                     <Class>
                                         <DateClass>13:40</DateClass>
@@ -54,9 +49,8 @@ export default function Home (){
                                 </ClassEnter>
                                 <IconEnter source={require("../Img/enter.png")}/>
                             </ContainnerTask>
-
-                            <ContainnerTask>
-                                <ClassEnter>
+                            <ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
                                     <Class>
                                         <DateClass>13:40</DateClass>
                                         <CategoClass>---</CategoClass>
@@ -65,9 +59,18 @@ export default function Home (){
                                 </ClassEnter>
                                 <IconEnter source={require("../Img/enter.png")}/>
                             </ContainnerTask>
-
-                            <ContainnerTask>
-                                <ClassEnter>
+                            <ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
+                                    <Class>
+                                        <DateClass>13:40</DateClass>
+                                        <CategoClass>---</CategoClass>
+                                    </Class>
+                                    <TaskName>Exemplo de titulo</TaskName>
+                                </ClassEnter>
+                                <IconEnter source={require("../Img/enter.png")}/>
+                            </ContainnerTask>
+                            <ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
                                     <Class>
                                         <DateClass>13:40</DateClass>
                                         <CategoClass>---</CategoClass>
@@ -84,8 +87,53 @@ export default function Home (){
                         <TitleText>Em Breve</TitleText>
                         
                         <TaskToday>
-                            <ContainnerTask>
-                                <ClassEnter>
+                        <ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
+                                    <Class>
+                                        <DateClass>13:40</DateClass>
+                                        <CategoClass>---</CategoClass>
+                                    </Class>
+                                    <TaskName>Exemplo de titulo</TaskName>
+                                </ClassEnter>
+                                <IconEnter source={require("../Img/enter.png")}/>
+                            </ContainnerTask><ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
+                                    <Class>
+                                        <DateClass>13:40</DateClass>
+                                        <CategoClass>---</CategoClass>
+                                    </Class>
+                                    <TaskName>Exemplo de titulo</TaskName>
+                                </ClassEnter>
+                                <IconEnter source={require("../Img/enter.png")}/>
+                            </ContainnerTask><ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
+                                    <Class>
+                                        <DateClass>13:40</DateClass>
+                                        <CategoClass>---</CategoClass>
+                                    </Class>
+                                    <TaskName>Exemplo de titulo</TaskName>
+                                </ClassEnter>
+                                <IconEnter source={require("../Img/enter.png")}/>
+                            </ContainnerTask><ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
+                                    <Class>
+                                        <DateClass>13:40</DateClass>
+                                        <CategoClass>---</CategoClass>
+                                    </Class>
+                                    <TaskName>Exemplo de titulo</TaskName>
+                                </ClassEnter>
+                                <IconEnter source={require("../Img/enter.png")}/>
+                            </ContainnerTask><ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
+                                    <Class>
+                                        <DateClass>13:40</DateClass>
+                                        <CategoClass>---</CategoClass>
+                                    </Class>
+                                    <TaskName>Exemplo de titulo</TaskName>
+                                </ClassEnter>
+                                <IconEnter source={require("../Img/enter.png")}/>
+                            </ContainnerTask><ContainnerTask style={Styles.Container}>
+                                <ClassEnter >
                                     <Class>
                                         <DateClass>13:40</DateClass>
                                         <CategoClass>---</CategoClass>
@@ -94,59 +142,6 @@ export default function Home (){
                                 </ClassEnter>
                                 <IconEnter source={require("../Img/enter.png")}/>
                             </ContainnerTask>
-
-                            <ContainnerTask>
-                                <ClassEnter>
-                                    <Class>
-                                        <DateClass>13:40</DateClass>
-                                        <CategoClass>---</CategoClass>
-                                    </Class>
-                                    <TaskName>Exemplo de titulo</TaskName>
-                                </ClassEnter>
-                                <IconEnter source={require("../Img/enter.png")}/>
-                            </ContainnerTask>
-
-                            <ContainnerTask>
-                                <ClassEnter>
-                                    <Class>
-                                        <DateClass>13:40</DateClass>
-                                        <CategoClass>---</CategoClass>
-                                    </Class>
-                                    <TaskName>Exemplo de titulo</TaskName>
-                                </ClassEnter>
-                                <IconEnter source={require("../Img/enter.png")}/>
-                            </ContainnerTask>
-                            <ContainnerTask>
-                                <ClassEnter>
-                                    <Class>
-                                        <DateClass>13:40</DateClass>
-                                        <CategoClass>---</CategoClass>
-                                    </Class>
-                                    <TaskName>Exemplo de titulo</TaskName>
-                                </ClassEnter>
-                                <IconEnter source={require("../Img/enter.png")}/>
-                            </ContainnerTask>
-                            <ContainnerTask>
-                                <ClassEnter>
-                                    <Class>
-                                        <DateClass>13:40</DateClass>
-                                        <CategoClass>---</CategoClass>
-                                    </Class>
-                                    <TaskName>Exemplo de titulo</TaskName>
-                                </ClassEnter>
-                                <IconEnter source={require("../Img/enter.png")}/>
-                            </ContainnerTask>
-                            <ContainnerTask>
-                                <ClassEnter>
-                                    <Class>
-                                        <DateClass>13:40</DateClass>
-                                        <CategoClass>---</CategoClass>
-                                    </Class>
-                                    <TaskName>Exemplo de titulo</TaskName>
-                                </ClassEnter>
-                                <IconEnter source={require("../Img/enter.png")}/>
-                            </ContainnerTask>
-                            
                         </TaskToday>
                     </Before>
 

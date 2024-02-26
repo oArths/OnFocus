@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, ViewOpUp, ViewOpDo, ButtonUp,ButtonDown, ViewText, NumberText, Horus, Mints, Entre } from "./styles"
+// import Styles from "./styles"
 
 interface State {
   number: number;
@@ -12,7 +13,7 @@ class Timer extends Component<{}, State> {
 
   private increaseTimeout: NodeJS.Timeout | null = null;
   private delayTimeout: NodeJS.Timeout | null = null;
-  private delayDuration = 500; // Tempo de atraso em milissegundos (1 segundo)
+  private delayDuration = 300; // Tempo de atraso em milissegundos (1 segundo)
 
 
   constructor(props: {}) {
@@ -114,18 +115,21 @@ class Timer extends Component<{}, State> {
   render() {
     return (
       <Container >
-        <Horus>
-          <ViewOpUp onPressIn={this.handlePressDes} onPress={this.decreaseHours} onPressOut={this.handlePressOut}>     
+        <Horus >
+          <ViewOpUp onPressIn={this.handlePressDes} onPress={this.decreaseHours} onPressOut={this.handlePressOut}
+          >     
               <ButtonUp          
               source={require('../../Img/upload.png')}
               />
           </ViewOpUp>
 
           <ViewText >
-            <NumberText>{String(this.state.number).padStart(2, '0')}</NumberText>
+            <NumberText >{String(this.state.number).padStart(2, '0')}</NumberText>
           </ViewText>
 
-          <ViewOpDo onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} >     
+          <ViewOpDo onPressIn={this.handlePressIn} onPress={this.increaseHours} onPressOut={this.handlePressOut} 
+          
+          >         
               <ButtonDown 
               source={require('../../Img/Down.png')}
               />
@@ -155,6 +159,8 @@ class Timer extends Component<{}, State> {
     );
   }
 }
+
+
 
 
 

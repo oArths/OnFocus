@@ -11,7 +11,7 @@ import {
   DateTimeText,
 } from "./styles";
 import Timer from "../Timer/index";
-import React, { useState } from "react";
+import { useState } from 'react';
 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { format } from "date-fns";
@@ -68,21 +68,7 @@ export default function Sheet({ onClose }: Props) {
     }
   };
 
-//   const showDatePicker = () => {
-//     setDatePickerVisibility(true);
-//   };
 
-//   const hideDatePicker = () => {
-//     setDatePickerVisibility(false);
-//   };
-
-//   const handleConfirm = (date) => {
-//     console.warn("A date has been picked: ", date);
-//     if (date < new Date()) document.querySelector("#erro").textContent = "Insira uma data válida"
-//     else  setChosenDate(date);
-    
-//     hideDatePicker();
-//   };
 
 
   const showHoursPicker = () => {
@@ -158,7 +144,7 @@ export default function Sheet({ onClose }: Props) {
 
         <Container>
           <Main>
-            <Title maxLength={20} placeholder="Digite o titulo"></Title>
+            <Title maxLength={40} placeholder="Digite o titulo"></Title>
             <Timer />
             <DateTime>
                 <Button  onPress={showDatePicker} >
@@ -183,15 +169,16 @@ export default function Sheet({ onClose }: Props) {
                         onCancel={hideHoursPicker}
                     />
             </DateTime>
-            {/* <Text id="erro">{errorMessage}</Text> */}
+           
             <Insert>
               <Des
                 multiline={true} 
                 numberOfLines={4}
-                maxLength={80}
+                maxLength={150}
                 placeholder="Digite aqui..."
                 value={text}
                 onChangeText={handleTextChange}
+                textAlignVertical="top"
                 
               />
             </Insert>
