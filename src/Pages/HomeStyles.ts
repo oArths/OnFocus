@@ -5,7 +5,6 @@ import { TouchableOpacity } from "react-native";
 export const Main = styled.View`
   margin-top: 40px;
   display: flex;
-  /* background-color: "#000"; */
   width: 100%;
   height: 100%;
 `;
@@ -17,11 +16,11 @@ export const ContainerSheet = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  bottom: 20px;
 
 `;
 export const ButtonSheet = styled(TouchableOpacity)`
-  bottom: 70px;
+  bottom: 60px;
 `;
 export const Header = styled.View`
   display: flex;
