@@ -116,10 +116,7 @@ export default function Sheet({ onClose }: Props) {
               />
             </Insert>
 
-            <CustomButton
-              activeOpacity={0.1}
-              onPress={() => console.log("Botão pressionado")}
-            >
+            <CustomButton activeOpacity={0.1}>
               <ButtonText>Criar</ButtonText>
             </CustomButton>
            

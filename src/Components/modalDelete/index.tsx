@@ -3,7 +3,7 @@ import {
   Text,
   Image,
   CloseModal,
-  ModlOut,
+  ModalOut,
   ModalIn,
   ContainerButton,
   Delete,
@@ -19,15 +19,20 @@ interface Props {
   onClose: () => void;
 }
 const ModalDelete: React.FC<Props> = ({ isVisible, onClose }) => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Container>
+    <Container >
       <Modal
         visible={isVisible}
         animationType="fade"
         transparent={true}
-        onRequestClose={onClose}
+        onRequestClose={() => {
+          setIsOpen(!isOpen);
+        }}
       >
-        <ModlOut onPress={onClose}>
+        <ModalOut >
           <ModalIn>
             
               {/* <CloseModal >
@@ -37,7 +42,9 @@ const ModalDelete: React.FC<Props> = ({ isVisible, onClose }) => {
 
             <Text>Deseja Excluir?</Text>
             <ContainerButton>
-            <Cancel onPress={onClose}>
+            <Cancel onPress={() => {
+                      setIsOpen(!isOpen);
+                    }}>
                 <ButtonText>Não</ButtonText>
               </Cancel>
 
@@ -46,7 +53,7 @@ const ModalDelete: React.FC<Props> = ({ isVisible, onClose }) => {
               </Delete>
             </ContainerButton>
           </ModalIn>
-        </ModlOut>
+        </ModalOut>
       </Modal>
 
     </Container>
