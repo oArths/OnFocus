@@ -9,6 +9,7 @@ import {
   Delete,
   Cancel,
   ButtonText,
+  
 } from "./styles";
 import { Modal } from "react-native";
 import React, { useState } from "react";
@@ -26,30 +27,28 @@ const ModalDelete: React.FC<Props> = ({ isVisible, onClose }) => {
         transparent={true}
         onRequestClose={onClose}
       >
-        <ModlOut>
+        <ModlOut onPress={onClose}>
           <ModalIn>
-
-            <CloseModal
-              onPress={onClose}
-            >
-              <Image source={require("../../Img/exit.jpg")} />
-            </CloseModal>
+            
+              {/* <CloseModal >
+                <Image source={require("../../Img/exit.jpg")} />
+              </CloseModal> */}
+    
 
             <Text>Deseja Excluir?</Text>
             <ContainerButton>
-              <Delete>
-                <ButtonText>Sim</ButtonText>
-              </Delete>
-
-              <Cancel onPress={onClose}>
+            <Cancel onPress={onClose}>
                 <ButtonText>Não</ButtonText>
               </Cancel>
 
+              <Delete>
+                <ButtonText>Sim</ButtonText>
+              </Delete>
             </ContainerButton>
           </ModalIn>
         </ModlOut>
       </Modal>
-      
+
     </Container>
   );
 };
