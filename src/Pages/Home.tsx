@@ -12,7 +12,11 @@ import { ScrollView } from "react-native";
 
 
 
-export default function Home (){
+export default function Home ({navigation}){
+
+      const handlePress = () => {
+    navigation.navigate("Task");
+  };
 
     const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
 
@@ -54,7 +58,7 @@ export default function Home (){
                         </View>
                         
                         <TaskToday>
-                            <ContainnerTask style={Styles.Container} >
+                            <ContainnerTask style={Styles.Container} onPress={handlePress} >
                             
                                 <ClassEnter  >
                                     <Class>
@@ -172,7 +176,7 @@ export default function Home (){
                 </ContainerSheet>
                 
                 {/* ve se estiver aberto na função de cima para assim mostrar o botttom sheet */}
-                {isOpen && <Sheet onClose={toggleSheet} />}
+                {isOpen && <Sheet onClose={toggleSheet}  navigation={handlePress}/>}
             </Main>
     ); 
 }

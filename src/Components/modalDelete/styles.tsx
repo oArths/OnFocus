@@ -7,7 +7,7 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-export const ModlOut = styled(Button)`
+export const ModalOut = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;

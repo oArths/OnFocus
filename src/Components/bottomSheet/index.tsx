@@ -35,9 +35,16 @@ import Animated, {
 // função para o fechamento do bottom sheet
 type Props = {
   onClose: () => void;
+  navigation: any;
 };
 
-export default function Sheet({ onClose }: Props) {
+
+export default function Sheet ({ onClose, navigation}: Props ) {
+
+    const handlePress = () => {
+    navigation.navigate("Task");
+  };
+
   const [text, setText] = useState("");
    
   // definir valor iniciar do bottom sheet, essa var vai ser reutilizada para fazer a animação
@@ -116,10 +123,7 @@ export default function Sheet({ onClose }: Props) {
               />
             </Insert>
 
-            <CustomButton
-              activeOpacity={0.1}
-              onPress={() => console.log("Botão pressionado")}
-            >
+            <CustomButton onPress={handlePress} activeOpacity={0.1}>
               <ButtonText>Criar</ButtonText>
             </CustomButton>
            
