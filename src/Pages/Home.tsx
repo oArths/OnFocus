@@ -164,12 +164,13 @@ export default function Home (){
                 </Container>
                 </ScrollView>
                 <ContainerSheet>
-                    <ButtonSheet  activeOpacity={0.7} onPress={toggleSheet} >
+                    <ButtonSheet  activeOpacity={1.7} onPress={toggleSheet} >
                         <Plus source={require('../Img/plus.png')}
                         
                         />
                     </ButtonSheet>
                 </ContainerSheet>
+                
                 {/* ve se estiver aberto na função de cima para assim mostrar o botttom sheet */}
                 {isOpen && <Sheet onClose={toggleSheet} />}
             </Main>
