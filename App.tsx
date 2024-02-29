@@ -5,7 +5,7 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 
 import Task from "./src/Components/Task/Task";
-import Botton from "./src/Components/Task/Botton";
+import Botton from "./src/Components/editButton";
 import Modal from "./src/Components/Task/Modal";
 import ModalDelete from "./src/Components/modalDelete/index";
 
@@ -23,7 +23,7 @@ export default function App() {
       </GestureHandlerRootView> */}
       <StatusBar style="light" backgroundColor="transparent" translucent />
       <Stack.Navigator
-        initialRouteName="Task"
+        initialRouteName="Home"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen

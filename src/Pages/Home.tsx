@@ -19,10 +19,10 @@ import {
   Today,
   Before,
   ContainerSheet,
+  ScrollView
 } from "./HomeStyles";
 import Styles from "./HomeStyles";
 import Sheet from "../Components/bottomSheet/index";
-import { ScrollView } from "react-native";
 
 export default function Home({ navigation }) {
   const handlePress = () => {

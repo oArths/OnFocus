@@ -4,55 +4,113 @@ import styled from "styled-components/native";
 export const Main = styled.View`
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: white;
+    
 `;
+export const ContainerMain = styled.View`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    
+    
+`;
+export const ContainerVoltar = styled.View`
+    margin-right: 280px;
+  
+`;
+
 export const VoltarButton = styled(TouchableOpacity)`
     display: flex;
-    justify-content: center;
+    width: 50px;
 `;
 export const ImageVoltar = styled.Image`
-    width: 40px;
+    width: 50px;
     height: 40px;
+`;
+export const ContainerMix = styled.View`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  /* gap: 20px; */
+
 `;
 export const ContainerEdit = styled.View`
    display: flex;
    flex-direction: row;
-   gap: 20px;
+   justify-content:  center;
+   gap: 10px;
+   margin-left: 230px;
 `;
 export const ImageEdit = styled.Image`
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 `;
 export const ButtonDelete = styled(TouchableOpacity)`
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+`;
+export const ButtonEdit = styled(TouchableOpacity)`
+    width: 35px;
+    height: 35px;
 `;
 export const ContainerTitle = styled.View`
-    width: 122px ;
-    height: 51px;
+   display: flex;
+   justify-content: center;
 `;
-export const Title = styled.Text`
-    width: 122px ;
-    height: 51px;
+export const Title = styled.TextInput`
+   margin-top: 20px;
+  color: #000;
+  width: 300px;
+  height: 50px;
+  border: 0.5px;
+  border-color: #000;
+  text-align: left;
+  font-size: 29px;
+  padding-left: 15px;
+  border-radius: 15px;
 `;
-
-
-
 
 export const Container = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  margin-top: 60px;
+  gap: 5px;
 `;
 export const Horus = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  color: black;
+  height: 140px;
+  border-width: 1px;
+  border-radius: 20px;
+  border-color: #585353b1;
 
 `;
 export const Mints = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  color: black;
+  height: 140px;
+  border-width: 1px;
+  border-radius: 20px;
+  border-color: #585353b1;
 
 `;
-export const Entre = styled.Text`
-    margin-bottom: 65px;
+export const Entre = styled.Text`   
+    margin-bottom: 20px;
     font-size: 80px;
 `;
 
@@ -98,21 +156,26 @@ export const ButtonDown = styled.Image`
 
 export const ViewText = styled.View`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  
+  align-items: end;
+
   
 `;
 
 export const NumberText = styled.Text`
-  align-items: center;
-  text-align: center;
-  width: 90px;
-  color: black;
-  height: 70px;
-  font-size: 60px;
-  border-width: 1px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  border-color: #585353b1;
+text-align: center;
+font-size: 65px;
+font-weight: 500;
+  
+
+  `;
+export const HorusText = styled.Text`
+text-align: center;
+font-size: 25px;
+font-weight: 400;
+  
 
   `;
   export const DateTimeText = styled.Text`
@@ -141,6 +204,7 @@ export const Insert = styled.View`
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  margin-top: 60px;
 `;
 
 export const Des = styled.TextInput`
@@ -152,4 +216,13 @@ export const Des = styled.TextInput`
   border-radius: 7px;
   padding: 8px;
  
+`;
+export const ContainerButton = styled.View`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    height: 100px;
+
 `;
