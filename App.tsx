@@ -4,13 +4,14 @@ import Home from "./src/Pages/Home";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 
-import Task from "./src/Components/Task/Task"
+import Task from "./src/Components/Task/Task";
 import Botton from "./src/Components/Task/Botton";
 import Modal from "./src/Components/Task/Modal";
-import ModalDelete from "./src/Components/modalDelete/index"
+import ModalDelete from "./src/Components/modalDelete/index";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Sheet from "./src/Components/bottomSheet";
 
 const Stack = createStackNavigator();
 
@@ -18,10 +19,9 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* <GestureHandlerRootView styles={{ flex: 1 }}>
-        <StatusBar style="light" backgroundColor="transparent" translucent />
         <Home />
       </GestureHandlerRootView> */}
-
+      <StatusBar style="light" backgroundColor="transparent" translucent />
       <Stack.Navigator
         initialRouteName="Task"
         screenOptions={{ headerShown: false }}
@@ -51,7 +51,11 @@ export default function App() {
           component={ModalDelete}
           options={{ title: "ModalDelete" }}
         />
-        {/* <Stack.Screen name="Timer" component={Timer} options={{ title: 'Timer' }} /> */}
+        <Stack.Screen
+          name="Sheet"
+          component={Sheet}
+          options={{ title: "Sheet" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

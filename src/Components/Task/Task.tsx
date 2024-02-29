@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -6,11 +6,13 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import Botton from "./Botton";
+import ModalDelete from "../modalDelete/index";
 
-import { Color, Border, FontFamily, FontSize } from "./Styles";
+
+import { Main, VoltarButton, ImageVoltar,ContainerEdit, 
+  ImageEdit, ButtonDelete, ContainerTitle, Title, Container, Horus, DateTime, ViewText, NumberText, Entre, Mints, Insert, Des  } from "./Styles";
 
 
 interface TaskProps {
@@ -18,54 +20,98 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ navigation }) => {
-    
+
+
+  const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
+  const [text, setText] = useState("");
+
+  const abrirModalDelete = () => {
+    setModalDeleteVisible(true);
+  };
+
+  const fecharModalDelete = () => {
+    setModalDeleteVisible(false);
+  };
+  const handleTextChange = (inputText) => {
+    setText(inputText);
+  };
+
+
+
+
+
   const handlePress = () => {
     navigation.navigate("Home");
   };
-  const ModalDelete = () => {
-    navigation.navigate("ModalDelete");
-  };
+ 
 
   return (
-    <ScrollView>
 
-      <View style={styles.task}>
+      <Main style={styles.task}>
 
-        <TouchableOpacity onPress={handlePress}>
-          <Image
+        <VoltarButton onPressIn={handlePress}>
+          <ImageVoltar
             style={styles.voltarIcon}
             source={require("../../Img/voltar.png")}
           />
-        </TouchableOpacity>
+        </VoltarButton>
 
 
-        <View style={styles.frameParent}>
+        <ContainerEdit style={styles.frameParent}>
         
 
-          <Image
-            onProgress={ModalDelete}
+          <ImageEdit
             style={styles.frameIcon}
             source={require("../../Img/edit.png")}
           />
 
-          <TouchableOpacity onPress={ModalDelete}>
-            <Image
+          <ButtonDelete onPress={abrirModalDelete}>
+            <ImageEdit
             style={styles.LixoIcon}
             source={require("../../Img/lixo.png")}
           />
+          <ModalDelete
+                isVisible={modalDeleteVisible}
+                onClose={fecharModalDelete}
+              />
 
-          </TouchableOpacity>
+          </ButtonDelete>
+
+        </ContainerEdit>
+
+        <ContainerTitle style={styles.tituloWrapper}>
+          <Title style={[styles.titulo, styles.tituloPosition]}>Titulo</Title>
+        </ContainerTitle>
+
+        <Container >
+        <DateTime>
+        <Horus >
+          
+          <ViewText >
+            <NumberText >10</NumberText>
+          </ViewText>
 
           
+        </Horus>
+        
+          </DateTime>
 
+          <Entre>:</Entre>
+          <DateTime>
+        <Mints>
+          
 
-        </View>
+          <ViewText >
+            <NumberText>20</NumberText>
+          </ViewText>
 
-        <View style={styles.tituloWrapper}>
-          <Text style={[styles.titulo, styles.tituloPosition]}>Titulo</Text>
-        </View>
+          
+        </Mints>
+        
+            </DateTime>
+      </Container>
 
-        <View style={styles.rectangleParent}>
+        {/* <View style={styles.rectangleParent}>
           <View style={[styles.groupChild, styles.groupShadowBox]} />
           <View style={[styles.groupItem, styles.groupShadowBox]} />
 
@@ -78,16 +124,20 @@ const Task: React.FC<TaskProps> = ({ navigation }) => {
           <Text style={[styles.text1, styles.text1flexbox]}>:</Text>
 
           <Text style={[styles.text2, styles.textTypo]}>20</Text>
-        </View>
+        </View> */}
 
-        <View style={[styles.rectangleGroup, styles.groupLayout]}>
-          <View style={[styles.groupInner, styles.groupLayout]} />
-          <TextInput
-            style={[styles.escrevaUmBom, styles.text1flexbox]}
-            placeholder="Escreva um bom titulo"
-          ></TextInput>
-        </View>
-
+            <Insert>
+              <Des
+                multiline={true}
+                numberOfLines={4}
+                editable={false}
+                maxLength={150}
+                placeholder="Digite aqui..."
+                value={text}
+                onChangeText={handleTextChange}
+                textAlignVertical="top"
+              />
+            </Insert>
         <TouchableOpacity style={[styles.button, styles.buttonLayout]}>
           <View style={[styles.buttonChild, styles.buttonLayout]} />
           <Text style={[styles.comecar, styles.comecarTypo]}>Começar</Text>
@@ -97,8 +147,7 @@ const Task: React.FC<TaskProps> = ({ navigation }) => {
           <Botton />
         </View>
         
-      </View>
-    </ScrollView>
+      </Main>
   );
 };
 
@@ -127,7 +176,6 @@ const styles = StyleSheet.create({
     comecarTypo: {
       width: 83,
       textAlign: "center",
-      fontFamily: FontFamily.interSemiBold,
       fontWeight: "600",
       position: "absolute",
     },
@@ -135,7 +183,6 @@ const styles = StyleSheet.create({
       height: 82,
       textAlign: "center",
       color: Color.black,
-      fontFamily: FontFamily.interSemiBold,
       fontWeight: "600",
       position: "absolute",
     },
@@ -169,7 +216,6 @@ const styles = StyleSheet.create({
       height: 24,
       textAlign: "center",
       color: Color.black,
-      fontFamily: FontFamily.interSemiBold,
       fontWeight: "600",
       letterSpacing: 1.2,
       fontSize: FontSize.size_mini,
@@ -197,7 +243,6 @@ const styles = StyleSheet.create({
       top: 62,
       left: 106,
       fontWeight: "700",
-      fontFamily: FontFamily.robotoMonoBold,
       color: "#363232",
       justifyContent: "center",
       width: 28,
@@ -247,7 +292,6 @@ const styles = StyleSheet.create({
     titulo: {
       fontSize: 42,
       fontWeight: "800",
-      fontFamily: FontFamily.interExtraBold,
       textAlign: "center",
       color: Color.black,
       left: 0,
@@ -302,7 +346,6 @@ const styles = StyleSheet.create({
     escrevaUmBom: {
       top: 8,
       fontSize: FontSize.size_xs,
-      fontFamily: FontFamily.interRegular,
       color: "rgba(0, 0, 0, 0.4)",
       textAlign: "left",
       width: 149,
@@ -332,7 +375,7 @@ const styles = StyleSheet.create({
     },
     buttonAction: {
       position: 'absolute',
-      bottom: 20, // Ajuste este valor conforme necessário
+      bottom: 20,
       left: 0,
       right: 0,
       alignItems: 'center',
