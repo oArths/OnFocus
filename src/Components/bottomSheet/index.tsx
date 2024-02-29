@@ -37,6 +37,7 @@ type Props = {
 export default function Sheet({ navigation, onClose }: Props) {
   const handlePress = () => {
     onClose();
+    
   };
 
   const [text, setText] = useState("");
