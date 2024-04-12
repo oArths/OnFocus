@@ -1,0 +1,187 @@
+import { useEffect, useState } from "react";
+import navigation from "@react-navigation/native"
+import {
+  Main,
+  Header,
+  Title,
+  Logo,
+  ButtonSheet,
+  Plus,
+  Container,
+  TitleText,
+  TaskToday,
+  ContainnerTask,
+  DateClass,
+  TaskName,
+  CategoClass,
+  Class,
+  IconEnter,
+  ClassEnter,
+  Today,
+  Before,
+  ContainerSheet,
+  ScrollView
+} from "./HomeStyles";
+import Styles from "./HomeStyles";
+import Sheet from "../Components/bottomSheet/index";
+// import api from '../../../backend/controller/tarefas.controller.js'
+
+export default function Home({ navigation }) {
+  const handlePress = () => {
+    navigation.navigate("Task");
+  };
+
+  // const [tarefa,setTarefa] = useState({})
+
+  // useEffect(() => {
+  //   console.log("iniciando busca");
+    
+  //   setTarefa(api.getAll()) 
+
+  //   console.log("busca finalizada" + Object.keys(tarefa));
+    
+  // })
+  
+  
+
+  // função para ver se esta aberto
+  const [isOpen, setIsOpen] = useState(false);
+  // ve se esta aberto e se esriver ele fecha ou o contrario
+  // (sempre vai fazer o inverso do estado atual)
+  function toggleSheet() {
+    setIsOpen((prevState) => !prevState);
+  }
+
+  return (
+    <Main>
+      <ScrollView>
+        <Header>
+          <Title>OnFocus</Title>
+          <Logo source={require("../Img/Logo.png")} />
+        </Header>
+        <Container>
+          <Today>
+            <TitleText>Hoje</TitleText>
+
+            <TaskToday>
+              <ContainnerTask style={Styles.Container} onPress={handlePress}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+            </TaskToday>
+          </Today>
+          <Before>
+            <TitleText>Em Breve</TitleText>
+
+            <TaskToday>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+              <ContainnerTask style={Styles.Container}>
+                <ClassEnter>
+                  <Class>
+                    <DateClass>13:40</DateClass>
+                    <CategoClass>---</CategoClass>
+                  </Class>
+                  <TaskName>Exemplo de titulo</TaskName>
+                </ClassEnter>
+                <IconEnter source={require("../Img/enter.png")} />
+              </ContainnerTask>
+            </TaskToday>
+          </Before>
+        </Container>
+      </ScrollView>
+      <ContainerSheet>
+        <ButtonSheet activeOpacity={1.7} onPress={toggleSheet}>
+          <Plus source={require("../Img/plus.png")} />
+        </ButtonSheet>
+      </ContainerSheet>
+
+      {/* ve se estiver aberto na função de cima para assim mostrar o botttom sheet */}
+      {isOpen && <Sheet onClose={toggleSheet} />}
+    </Main>
+  );
+}
